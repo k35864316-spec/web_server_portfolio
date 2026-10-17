@@ -7,7 +7,10 @@ export type Project = {
   period: string;
   summary: string;
   role: string;
+  /** 사용한 기술 (빈도수 집계에 쓰임) */
   stack: string[];
+  /** 사용한 도구 (빈도수 집계에서 제외) */
+  tools: string[];
   /** done: 구현·적용 완료 여부 (false 면 화면에 "구현 예정" 으로 표시) */
   points: { text: string; done: boolean }[];
   repo?: string;
@@ -36,9 +39,9 @@ export const PROFILE: ProfileData = {
   github: "https://github.com/k35864316-spec",
   skills: [
     { group: "Web", items: ["Next.js", "React", "TypeScript"] },
-    { group: "Database", items: ["MongoDB", "Mongoose", "MongoDB Atlas"] },
-    { group: "Language", items: ["Python (기초)", "C (기초)"] },
-    { group: "Tools", items: ["Git / GitHub", "VS Code", "Vercel"] },
+    { group: "Database", items: ["MongoDB"] },
+    { group: "Language", items: ["Python", "C"] },
+    { group: "Tools", items: ["GitHub", "VS Code", "Vercel"] },
   ],
   projects: [
     {
@@ -46,7 +49,8 @@ export const PROFILE: ProfileData = {
       period: "2026.09 ~ 진행 중",
       summary: "로그인한 사용자만 이용할 수 있는 게시판입니다. 웹 보안 기능을 기능마다 하나씩 적용해 가는 팀 프로젝트입니다.",
       role: "3인 팀 프로젝트 (웹서버보안프로그래밍)",
-      stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Vercel"],
+      stack: ["Next.js", "React", "TypeScript", "MongoDB"],
+      tools: ["GitHub", "VS Code", "Vercel"],
       points: [
         { text: "회원가입·로그인, 서버 세션(HttpOnly 쿠키), bcrypt 비밀번호 해시", done: true },
         { text: "게시글 작성·수정·삭제, 검색, 페이지 나누기, 조회수, 비밀글, 댓글", done: true },
@@ -63,7 +67,8 @@ export const PROFILE: ProfileData = {
       period: "2026.10",
       summary: "지금 보고 계신 이 사이트입니다. 사이드바로 메인·기술 스택·활동을 오가며 볼 수 있습니다.",
       role: "개인 프로젝트",
-      stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Vercel"],
+      stack: ["Next.js", "React", "TypeScript"],
+      tools: ["GitHub", "VS Code"],
       points: [
         { text: "사이드바 버튼으로 각 내용 위치로 이동, 현재 위치 표시", done: true },
         { text: "Next.js 와 TypeScript 로 작성, Vercel 배포 예정", done: true },
