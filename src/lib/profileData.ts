@@ -61,13 +61,13 @@ export const PROFILE: ProfileData = {
     {
       title: "개인 포트폴리오 홈페이지",
       period: "2026.10",
-      summary: "지금 보고 계신 이 사이트입니다. 소개 내용을 MongoDB에 저장해 불러오고, 방명록을 남길 수 있습니다.",
+      summary: "지금 보고 계신 이 사이트입니다. 사이드바로 메인·기술 스택·활동을 오가며 볼 수 있습니다.",
       role: "개인 프로젝트",
       stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Vercel"],
       points: [
-        { text: "소개·기술·프로젝트 정보를 MongoDB 에서 읽어 서버에서 렌더링", done: true },
-        { text: "방명록 작성·조회 API (입력값 길이 검사, 화면에는 텍스트로만 출력)", done: true },
-        { text: "DB 에 연결할 수 없을 때도 기본 내용으로 화면이 열리도록 대비", done: true },
+        { text: "사이드바 버튼으로 각 내용 위치로 이동, 현재 위치 표시", done: true },
+        { text: "Next.js 와 TypeScript 로 작성, Vercel 배포 예정", done: true },
+        { text: "MongoDB 연동은 구현 예정", done: false },
       ],
       repo: "https://github.com/k35864316-spec/portfolio",
     },
