@@ -38,7 +38,7 @@ export const PROFILE: ProfileData = {
   school: "중부대학교 정보보호학과 · 2학년 재학",
   github: "https://github.com/k35864316-spec",
   skills: [
-    { group: "Web", items: ["Next.js", "React", "TypeScript"] },
+    { group: "Web", items: ["HTML", "CSS", "JS", "Next.js", "React", "TypeScript"] },
     { group: "Database", items: ["MongoDB"] },
     { group: "Language", items: ["Python", "C"] },
     { group: "Tools", items: ["GitHub", "VS Code", "Vercel"] },

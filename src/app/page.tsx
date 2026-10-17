@@ -1,11 +1,12 @@
 import Sidebar from "@/components/Sidebar";
 import { PROFILE as p } from "@/lib/profileData";
-import { countStackUsage } from "@/lib/stackStats";
+import { countStackUsage, formatPercent } from "@/lib/stackStats";
 import { C, S } from "@/lib/theme";
 
 export default function Home() {
   const usage = countStackUsage();
-  const max = Math.max(1, ...usage.map((u) => u.count));
+  const max = Math.max(1, ...usage.map((u) => u.percent));
+  const CHART_H = 200;
   return (
     <>
       <Sidebar name={p.name} />
@@ -32,18 +33,28 @@ export default function Home() {
           </dl>
 
           <h3 style={{ margin: "40px 0 6px", fontSize: 20 }}>기술 스택 사용 빈도</h3>
-          <p style={S.sub}>활동에 적은 프로젝트 {p.projects.length}개에서 쓰인 횟수예요. 도구(Tools)는 제외했어요.</p>
-          <ul style={{ listStyle: "none", margin: "16px 0 0", padding: 0, display: "grid", gap: 10 }}>
+          <p style={S.sub}>활동에 적은 프로젝트 {p.projects.length}개에서 쓰인 기술의 비율이에요. 도구(Tools)는 제외했어요.</p>
+          <div
+            role="img"
+            aria-label={`기술 스택 사용 빈도: ${usage.map((u) => `${u.name} ${formatPercent(u.percent)}%`).join(", ")}`}
+            style={{ display: "flex", alignItems: "flex-end", gap: "clamp(12px, 4vw, 36px)", marginTop: 20, paddingBottom: 8, borderBottom: `2px solid ${C.ink}` }}
+          >
             {usage.map((u) => (
-              <li key={u.name} style={{ display: "grid", gridTemplateColumns: "minmax(88px, 120px) minmax(0, 1fr) 44px", alignItems: "center", gap: 12 }}>
-                <span>{u.name}</span>
-                <span style={{ background: C.line, borderRadius: 4, height: 14 }}>
-                  <span style={{ display: "block", height: "100%", borderRadius: 4, background: C.accent, width: `${(u.count / max) * 100}%` }} />
-                </span>
-                <span style={{ color: C.muted, textAlign: "right" }}>{u.count}회</span>
-              </li>
+              <div key={u.name} style={{ flex: "1 1 0", minWidth: 0, maxWidth: 120, textAlign: "center" }}>
+                <div style={{ fontWeight: 600, marginBottom: 6 }}>{formatPercent(u.percent)}%</div>
+                <div style={{ height: CHART_H, display: "flex", alignItems: "flex-end" }}>
+                  <div style={{ width: "100%", height: `${(u.percent / max) * 100}%`, background: C.accent, borderRadius: "6px 6px 0 0" }} />
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
+          <div style={{ display: "flex", gap: "clamp(12px, 4vw, 36px)", marginTop: 8 }}>
+            {usage.map((u) => (
+              <div key={u.name} style={{ flex: "1 1 0", minWidth: 0, maxWidth: 120, textAlign: "center", fontSize: 14, overflowWrap: "anywhere" }}>
+                {u.name}
+              </div>
+            ))}
+          </div>
         </section>
 
         <section id="activities" style={{ ...S.block, borderBottom: 0, minHeight: "80vh" }}>
