@@ -12,6 +12,19 @@ export const C = {
   accent: "#3d7bff",
 } as const;
 
+/** 기술별 대표 색 (그래프 막대용). 목록에 없는 기술은 기본 강조색을 쓴다. */
+export const STACK_COLORS: Record<string, string> = {
+  "Next.js": "#111111",
+  React: "#61DAFB",
+  TypeScript: "#3178C6",
+  MongoDB: "#47A248",
+  HTML: "#E34F26",
+  CSS: "#1572B6",
+  JS: "#F7DF1E",
+  Python: "#3776AB",
+  C: "#5C6BC0",
+};
+
 export const FONT =
   'system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Noto Sans KR", sans-serif';
 

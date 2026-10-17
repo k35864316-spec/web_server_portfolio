@@ -1,7 +1,7 @@
 import Sidebar from "@/components/Sidebar";
 import { PROFILE as p } from "@/lib/profileData";
 import { countStackUsage, formatPercent } from "@/lib/stackStats";
-import { C, S } from "@/lib/theme";
+import { C, S, STACK_COLORS } from "@/lib/theme";
 
 export default function Home() {
   const usage = countStackUsage();
@@ -42,8 +42,8 @@ export default function Home() {
             {usage.map((u) => (
               <div key={u.name} style={{ flex: "1 1 0", minWidth: 0, maxWidth: 120, textAlign: "center" }}>
                 <div style={{ fontWeight: 600, marginBottom: 6 }}>{formatPercent(u.percent)}%</div>
-                <div style={{ height: CHART_H, display: "flex", alignItems: "flex-end" }}>
-                  <div style={{ width: "100%", height: `${(u.percent / max) * 100}%`, background: C.accent, borderRadius: "6px 6px 0 0" }} />
+                <div style={{ height: CHART_H, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+                  <div style={{ width: 36, margin: "0 auto", height: `${(u.percent / max) * 100}%`, background: STACK_COLORS[u.name] ?? C.accent, borderRadius: "4px 4px 0 0" }} />
                 </div>
               </div>
             ))}
