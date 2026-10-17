@@ -18,7 +18,7 @@ export default function Sidebar({ name }: { name: string }) {
       let cur = ITEMS[0].id;
       for (const i of ITEMS) {
         const el = document.getElementById(i.id);
-        if (el && el.getBoundingClientRect().top <= line) cur = i.id;
+        if (el && el.getBoundingClientRect().top <= line + 0) cur = i.id;
       }
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) cur = ITEMS[ITEMS.length - 1].id;
       setActive(cur);
