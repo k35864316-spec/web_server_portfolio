@@ -50,7 +50,7 @@ export default function Guestbook() {
       </form>
       {error && <p className="gb-error">{error}</p>}
       <ul className="gb-list">
-        {items.length === 0 && !error && <li className="muted">아직 방명록이 없습니다. 첫 글을 남겨 보세요.</li>}
+        {items.length === 0 && !error && <li className="muted">아직 남겨진 글이 없습니다. 첫 글을 남겨 주세요.</li>}
         {items.map((g) => (
           <li key={g.id}>
             <strong>{g.name}</strong>

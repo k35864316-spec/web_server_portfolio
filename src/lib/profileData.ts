@@ -8,7 +8,8 @@ export type Project = {
   summary: string;
   role: string;
   stack: string[];
-  points: string[];
+  /** done: 구현·적용 완료 여부 (false 면 화면에 "구현 예정" 으로 표시) */
+  points: { text: string; done: boolean }[];
   repo?: string;
   demo?: string;
 };
@@ -47,10 +48,12 @@ export const PROFILE: ProfileData = {
       role: "3인 팀 프로젝트 (웹서버보안프로그래밍)",
       stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Vercel"],
       points: [
-        "회원가입·로그인, 서버 세션(HttpOnly 쿠키), bcrypt 비밀번호 해시",
-        "게시글 작성·수정·삭제, 검색, 페이지 나누기, 조회수, 비밀글, 댓글",
-        "작성자·관리자 권한 검사(접근 제어), 로그인 실패 5회 시 5분 잠금",
-        "입력값 검증·인젝션 방어, XSS 방어, CSRF 방어는 구현 예정",
+        { text: "회원가입·로그인, 서버 세션(HttpOnly 쿠키), bcrypt 비밀번호 해시", done: true },
+        { text: "게시글 작성·수정·삭제, 검색, 페이지 나누기, 조회수, 비밀글, 댓글", done: true },
+        { text: "작성자·관리자 권한 검사(접근 제어), 로그인 실패 5회 시 5분 잠금", done: true },
+        { text: "입력값 검증·인젝션 방어", done: false },
+        { text: "XSS 방어", done: false },
+        { text: "CSRF 방어", done: false },
       ],
       repo: "https://github.com/k35864316-spec/safeboard",
       demo: "https://safeboard-hazel.vercel.app/",
@@ -62,9 +65,9 @@ export const PROFILE: ProfileData = {
       role: "개인 프로젝트",
       stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Vercel"],
       points: [
-        "소개·기술·프로젝트 정보를 MongoDB 에서 읽어 서버에서 렌더링",
-        "방명록 작성·조회 API (입력값 길이 검사, 화면에는 텍스트로만 출력)",
-        "DB 에 연결할 수 없을 때도 기본 내용으로 화면이 열리도록 대비",
+        { text: "소개·기술·프로젝트 정보를 MongoDB 에서 읽어 서버에서 렌더링", done: true },
+        { text: "방명록 작성·조회 API (입력값 길이 검사, 화면에는 텍스트로만 출력)", done: true },
+        { text: "DB 에 연결할 수 없을 때도 기본 내용으로 화면이 열리도록 대비", done: true },
       ],
       repo: "https://github.com/k35864316-spec/portfolio",
     },
