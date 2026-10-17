@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { C, NAV_HEIGHT } from "@/lib/theme";
 
 const ITEMS = [
   { id: "main", label: "메인" },
@@ -8,8 +9,10 @@ const ITEMS = [
   { id: "activities", label: "활동" },
 ];
 
+/** 페이지 맨 위에 고정되는 메뉴. 버튼을 누르면 해당 내용으로 이동한다. */
 export default function Sidebar({ name }: { name: string }) {
   const [active, setActive] = useState("main");
+  const [hover, setHover] = useState<string | null>(null);
 
   useEffect(() => {
     // 화면 위쪽 35% 지점을 지난 마지막 섹션을 현재 위치로 본다.
@@ -18,9 +21,11 @@ export default function Sidebar({ name }: { name: string }) {
       let cur = ITEMS[0].id;
       for (const i of ITEMS) {
         const el = document.getElementById(i.id);
-        if (el && el.getBoundingClientRect().top <= line + 0) cur = i.id;
+        if (el && el.getBoundingClientRect().top <= line) cur = i.id;
       }
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) cur = ITEMS[ITEMS.length - 1].id;
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        cur = ITEMS[ITEMS.length - 1].id;
+      }
       setActive(cur);
     }
     update();
@@ -37,21 +42,53 @@ export default function Sidebar({ name }: { name: string }) {
   }
 
   return (
-    <aside className="side">
-      <div className="side-name">{name}</div>
-      <nav aria-label="페이지 이동">
-        {ITEMS.map((i) => (
-          <button
-            key={i.id}
-            type="button"
-            onClick={() => go(i.id)}
-            className={active === i.id ? "side-btn on" : "side-btn"}
-            aria-current={active === i.id ? "true" : undefined}
-          >
-            {i.label}
-          </button>
-        ))}
+    <header
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 10,
+        height: NAV_HEIGHT,
+        background: C.bar,
+        color: C.barInk,
+        display: "flex",
+        alignItems: "center",
+        gap: "clamp(12px, 3vw, 32px)",
+        padding: "0 clamp(12px, 3vw, 32px)",
+        overflowX: "auto",
+      }}
+    >
+      <strong style={{ color: "#fff", fontSize: 18, whiteSpace: "nowrap" }}>{name}</strong>
+      <nav aria-label="페이지 이동" style={{ display: "flex", gap: 4 }}>
+        {ITEMS.map((i) => {
+          const on = active === i.id;
+          return (
+            <button
+              key={i.id}
+              type="button"
+              onClick={() => go(i.id)}
+              onMouseEnter={() => setHover(i.id)}
+              onMouseLeave={() => setHover(null)}
+              aria-current={on ? "true" : undefined}
+              style={{
+                appearance: "none",
+                border: 0,
+                borderBottom: `3px solid ${on ? C.accent : "transparent"}`,
+                borderRadius: "6px 6px 0 0",
+                background: on ? "rgba(255,255,255,.1)" : hover === i.id ? "rgba(255,255,255,.08)" : "transparent",
+                color: on ? "#fff" : "inherit",
+                fontFamily: "inherit",
+                fontSize: 16,
+                fontWeight: on ? 600 : 400,
+                whiteSpace: "nowrap",
+                padding: "8px 14px",
+                cursor: "pointer",
+              }}
+            >
+              {i.label}
+            </button>
+          );
+        })}
       </nav>
-    </aside>
+    </header>
   );
 }
