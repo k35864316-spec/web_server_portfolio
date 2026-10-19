@@ -85,7 +85,7 @@ export const PROFILE: ProfileData = {
         { text: "Next.js 와 TypeScript 로 작성, Vercel 배포 예정", done: true },
         { text: "MongoDB 연동은 구현 예정", done: false },
       ],
-      repo: "https://github.com/k35864316-spec/portfolio",
+      repo: "https://github.com/k35864316-spec/web_server_portfolio",
     },
   ],
   links: [
