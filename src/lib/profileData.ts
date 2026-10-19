@@ -54,7 +54,7 @@ export const PROFILE: ProfileData = {
   ],
   projects: [
     {
-      title: "SafeBoard (세이프보드)",
+      title: "웹 서버 프로그래밍 팀 프로젝트",
       period: "2026.09 ~",
       status: "진행 중",
       summary: "로그인한 사용자만 이용할 수 있는 게시판입니다. 웹 보안 기능을 기능마다 하나씩 적용해 가는 팀 프로젝트입니다.",
