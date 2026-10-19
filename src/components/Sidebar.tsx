@@ -49,16 +49,19 @@ export default function Sidebar({ name }: { name: string }) {
         top: 0,
         zIndex: 10,
         height: NAV_HEIGHT,
-        background: C.bar,
-        color: C.barInk,
+        background: "rgba(10,15,28,.88)",
+        backdropFilter: "blur(10px)",
+        borderBottom: `1px solid ${C.line}`,
+        color: C.muted,
         display: "flex",
         alignItems: "center",
-        gap: "clamp(12px, 3vw, 32px)",
+        justifyContent: "space-between",
+        gap: 16,
         padding: "0 clamp(12px, 3vw, 32px)",
         overflowX: "auto",
       }}
     >
-      <strong style={{ color: "#fff", fontSize: 18, whiteSpace: "nowrap" }}>{name}</strong>
+      <strong style={{ color: C.ink, fontSize: 18, whiteSpace: "nowrap" }}>{name}</strong>
       <nav aria-label="페이지 이동" style={{ display: "flex", gap: 4 }}>
         {ITEMS.map((i) => {
           const on = active === i.id;
@@ -75,8 +78,8 @@ export default function Sidebar({ name }: { name: string }) {
                 border: 0,
                 borderBottom: `3px solid ${on ? C.accent : "transparent"}`,
                 borderRadius: "6px 6px 0 0",
-                background: on ? "rgba(255,255,255,.1)" : hover === i.id ? "rgba(255,255,255,.08)" : "transparent",
-                color: on ? "#fff" : "inherit",
+                background: on || hover === i.id ? "rgba(255,255,255,.07)" : "transparent",
+                color: on ? C.ink : "inherit",
                 fontFamily: "inherit",
                 fontSize: 16,
                 fontWeight: on ? 600 : 400,

@@ -5,6 +5,8 @@
 export type Project = {
   title: string;
   period: string;
+  /** 진행 상태 (예: "진행 중", "완료") */
+  status: string;
   summary: string;
   role: string;
   /** 사용한 기술 (빈도수 집계에 쓰임) */
@@ -21,6 +23,8 @@ export type ProfileData = {
   name: string;
   tagline: string;
   intro: string;
+  /** About 에 보이는 공부 방식 */
+  approach: string[];
   school: string;
   github: string;
   skills: { group: string; items: string[] }[];
@@ -37,6 +41,11 @@ export const PROFILE: ProfileData = {
     "기능을 만든 뒤에는 어떤 공격에 취약한지 확인하고 방어하는 방식으로 공부합니다.",
   school: "중부대학교 정보보호학과 · 2학년 재학",
   github: "https://github.com/k35864316-spec",
+  approach: [
+    "기능을 먼저 만들고, 어떤 공격에 취약한지 직접 확인합니다.",
+    "취약점마다 방어를 하나씩 붙이고, 적용한 것과 아직 못 한 것을 구분해서 기록합니다.",
+    "만든 것은 GitHub에 올리고 Vercel로 배포해서 주소로 확인합니다.",
+  ],
   skills: [
     { group: "Web", items: ["HTML", "CSS", "JS", "Next.js", "React", "TypeScript"] },
     { group: "Database", items: ["MongoDB"] },
@@ -46,7 +55,8 @@ export const PROFILE: ProfileData = {
   projects: [
     {
       title: "SafeBoard (세이프보드)",
-      period: "2026.09 ~ 진행 중",
+      period: "2026.09 ~",
+      status: "진행 중",
       summary: "로그인한 사용자만 이용할 수 있는 게시판입니다. 웹 보안 기능을 기능마다 하나씩 적용해 가는 팀 프로젝트입니다.",
       role: "3인 팀 프로젝트 (웹서버보안프로그래밍)",
       stack: ["Next.js", "React", "TypeScript", "MongoDB"],
@@ -65,6 +75,7 @@ export const PROFILE: ProfileData = {
     {
       title: "개인 포트폴리오 홈페이지",
       period: "2026.10",
+      status: "진행 중",
       summary: "지금 보고 계신 이 사이트입니다. 상단 메뉴로 Main·Stack·Project·About을 오가며 볼 수 있습니다.",
       role: "개인 프로젝트",
       stack: ["Next.js", "React", "TypeScript"],
