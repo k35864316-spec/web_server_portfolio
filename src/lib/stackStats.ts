@@ -3,7 +3,7 @@ import { PROFILE } from "./profileData";
 export type StackCount = { name: string; count: number; percent: number };
 
 /**
- * 지금까지 만든 프로젝트(활동)에서 각 기술 스택이 몇 번 쓰였는지 센다.
+ * 지금까지 만든 프로젝트(Project)에서 각 기술 스택이 몇 번 쓰였는지 센다.
  * 도구(Tools: GitHub, VS Code, Vercel 등)는 프로젝트의 `tools` 에만 적혀 있으므로 집계에 들어가지 않는다.
  * percent 는 전체 사용 횟수 중 그 기술이 차지하는 비율(%)이며, 모두 더하면 100 이다.
  * 많이 쓴 순서대로, 같으면 이름 순으로 돌려준다.

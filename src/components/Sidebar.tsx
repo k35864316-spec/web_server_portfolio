@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { C, NAV_HEIGHT } from "@/lib/theme";
 
 const ITEMS = [
-  { id: "main", label: "메인" },
-  { id: "skills", label: "스택" },
-  { id: "projects", label: "프로젝트" },
+  { id: "main", label: "Main" },
+  { id: "stack", label: "Stack" },
+  { id: "project", label: "Project" },
   { id: "about", label: "About" },
 ];
 

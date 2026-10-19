@@ -65,7 +65,7 @@ export const PROFILE: ProfileData = {
     {
       title: "개인 포트폴리오 홈페이지",
       period: "2026.10",
-      summary: "지금 보고 계신 이 사이트입니다. 상단 메뉴로 메인·스택·프로젝트·About을 오가며 볼 수 있습니다.",
+      summary: "지금 보고 계신 이 사이트입니다. 상단 메뉴로 Main·Stack·Project·About을 오가며 볼 수 있습니다.",
       role: "개인 프로젝트",
       stack: ["Next.js", "React", "TypeScript"],
       tools: ["GitHub", "VS Code"],
