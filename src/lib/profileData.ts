@@ -90,7 +90,7 @@ export const PROFILE: ProfileData = {
   ],
   links: [
     { label: "GitHub", url: "https://github.com/k35864316-spec" },
-    { label: "SafeBoard 저장소", url: "https://github.com/k35864316-spec/safeboard" },
-    { label: "SafeBoard 배포 주소", url: "https://safeboard-hazel.vercel.app/" },
+    { label: "팀 프로젝트 저장소", url: "https://github.com/k35864316-spec/safeboard" },
+    { label: "팀 프로젝트 배포 주소", url: "https://safeboard-hazel.vercel.app/" },
   ],
 };

@@ -32,7 +32,6 @@ export default function Stack({ p }: { p: ProfileData }) {
       </dl>
 
       <h3 style={{ margin: "44px 0 6px", fontSize: 20 }}>Usage</h3>
-      <p style={S.sub}>Project에 소개한 프로젝트 {p.projects.length}개에서 쓰인 기술의 비율이에요. 도구(Tools)는 제외했어요.</p>
       <div
         role="img"
         aria-label={`스택 사용 빈도: ${usage.map((u) => `${u.name} ${formatPercent(u.percent)}%`).join(", ")}`}
