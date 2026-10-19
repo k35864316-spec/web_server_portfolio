@@ -86,7 +86,6 @@ export const PROFILE: ProfileData = {
         { text: "MongoDB 연동은 구현 예정", done: false },
       ],
       repo: "https://github.com/k35864316-spec/web_server_portfolio",
-      demo: "https://web-server-portfolio.vercel.app/",
     },
   ],
   links: [
