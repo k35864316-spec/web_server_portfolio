@@ -14,12 +14,11 @@ export default function Home() {
         <section id="main" style={{ ...S.block, paddingTop: "clamp(56px, 10vw, 96px)", minHeight: "60vh" }}>
           <p style={{ margin: "0 0 8px", color: C.muted }}>{p.school}</p>
           <h1 style={{ margin: 0, fontSize: "clamp(44px, 9vw, 72px)", lineHeight: 1.1 }}>{p.name}</h1>
-          <p style={{ margin: "16px 0 24px", fontSize: 20 }}>{p.tagline}</p>
-          <p style={{ maxWidth: "38em", margin: 0 }}>{p.intro}</p>
+          <p style={{ margin: "16px 0 0", fontSize: 20 }}>{p.tagline}</p>
         </section>
 
         <section id="skills" style={{ ...S.block, minHeight: "60vh" }}>
-          <h2 style={S.h2}>기술 스택</h2>
+          <h2 style={S.h2}>스택</h2>
           <dl style={S.ledger}>
             {p.skills.map((s, idx) => (
               <div
@@ -32,11 +31,11 @@ export default function Home() {
             ))}
           </dl>
 
-          <h3 style={{ margin: "40px 0 6px", fontSize: 20 }}>기술 스택 사용 빈도</h3>
-          <p style={S.sub}>활동에 적은 프로젝트 {p.projects.length}개에서 쓰인 기술의 비율이에요. 도구(Tools)는 제외했어요.</p>
+          <h3 style={{ margin: "40px 0 6px", fontSize: 20 }}>스택 사용 빈도</h3>
+          <p style={S.sub}>프로젝트 항목에 적은 프로젝트 {p.projects.length}개에서 쓰인 기술의 비율이에요. 도구(Tools)는 제외했어요.</p>
           <div
             role="img"
-            aria-label={`기술 스택 사용 빈도: ${usage.map((u) => `${u.name} ${formatPercent(u.percent)}%`).join(", ")}`}
+            aria-label={`스택 사용 빈도: ${usage.map((u) => `${u.name} ${formatPercent(u.percent)}%`).join(", ")}`}
             style={{ display: "flex", alignItems: "flex-end", gap: "clamp(12px, 4vw, 36px)", marginTop: 20, paddingBottom: 8, borderBottom: `2px solid ${C.ink}` }}
           >
             {usage.map((u) => (
@@ -57,8 +56,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="activities" style={{ ...S.block, borderBottom: 0, minHeight: "80vh" }}>
-          <h2 style={S.h2}>활동</h2>
+        <section id="projects" style={{ ...S.block, minHeight: "60vh" }}>
+          <h2 style={S.h2}>프로젝트</h2>
           {p.projects.map((pr) => (
             <article key={pr.title} style={S.card}>
               <h3 style={{ margin: 0, fontSize: 20 }}>{pr.title}</h3>
@@ -80,6 +79,29 @@ export default function Home() {
               </p>
             </article>
           ))}
+        </section>
+
+        <section id="about" style={{ ...S.block, borderBottom: 0, minHeight: "80vh" }}>
+          <h2 style={S.h2}>About</h2>
+          <p style={{ maxWidth: "38em", margin: "0 0 24px" }}>{p.intro}</p>
+          <dl style={S.ledger}>
+            <div style={{ ...S.ledgerRow, borderBottom: `1px solid ${C.line}` }}>
+              <dt style={{ color: C.muted }}>이름</dt>
+              <dd style={{ margin: 0, fontWeight: 500 }}>{p.name}</dd>
+            </div>
+            <div style={{ ...S.ledgerRow, borderBottom: `1px solid ${C.line}` }}>
+              <dt style={{ color: C.muted }}>소속</dt>
+              <dd style={{ margin: 0, fontWeight: 500 }}>{p.school}</dd>
+            </div>
+            <div style={S.ledgerRow}>
+              <dt style={{ color: C.muted }}>링크</dt>
+              <dd style={{ margin: 0, display: "flex", flexWrap: "wrap", gap: "4px 18px" }}>
+                {p.links.map((l) => (
+                  <a key={l.url} href={l.url} target="_blank" rel="noreferrer" style={S.link}>{l.label}</a>
+                ))}
+              </dd>
+            </div>
+          </dl>
         </section>
       </main>
     </>

@@ -5,8 +5,9 @@ import { C, NAV_HEIGHT } from "@/lib/theme";
 
 const ITEMS = [
   { id: "main", label: "메인" },
-  { id: "skills", label: "기술 스택" },
-  { id: "activities", label: "활동" },
+  { id: "skills", label: "스택" },
+  { id: "projects", label: "프로젝트" },
+  { id: "about", label: "About" },
 ];
 
 /** 페이지 맨 위에 고정되는 메뉴. 버튼을 누르면 해당 내용으로 이동한다. */

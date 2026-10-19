@@ -65,12 +65,12 @@ export const PROFILE: ProfileData = {
     {
       title: "개인 포트폴리오 홈페이지",
       period: "2026.10",
-      summary: "지금 보고 계신 이 사이트입니다. 사이드바로 메인·기술 스택·활동을 오가며 볼 수 있습니다.",
+      summary: "지금 보고 계신 이 사이트입니다. 상단 메뉴로 메인·스택·프로젝트·About을 오가며 볼 수 있습니다.",
       role: "개인 프로젝트",
       stack: ["Next.js", "React", "TypeScript"],
       tools: ["GitHub", "VS Code"],
       points: [
-        { text: "사이드바 버튼으로 각 내용 위치로 이동, 현재 위치 표시", done: true },
+        { text: "상단 메뉴 버튼으로 각 내용 위치로 이동, 현재 위치 표시", done: true },
         { text: "Next.js 와 TypeScript 로 작성, Vercel 배포 예정", done: true },
         { text: "MongoDB 연동은 구현 예정", done: false },
       ],
